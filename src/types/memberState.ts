@@ -8,7 +8,7 @@ export interface MemberState {
 
 export interface MemberVariable {
     type: variableType;
-    id: number;
+    id: number | string;
     name: string;
     value?: any
 }

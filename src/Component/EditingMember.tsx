@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import {useDispatch, useSelector} from "react-redux"
-import {AppState} from "../types"
+import { Dispatch } from "redux";
+import {ActionType, AppState, MemberAction} from "../types"
 
 
 
@@ -14,7 +15,9 @@ export const EditingMemberContext : React.FC= (props)  =>
 
     const onFinishEditingVariable  = (event : React.MouseEvent<HTMLButtonElement, MouseEvent>) =>
     {
-        dispatch( {type: "EDITED_VARIABLE", id: appState.variableState.id} )
+        console.log(appState.variableState.id)
+        dispatch<MemberAction>( {type: "EDITED_VARIABLE", id: appState.variableState.id, editingVariablePayload : {type : "var", id : appState.variableState.id, name : "Hello", value: "" }} )
+        dispatch<ActionType>({type : "DONE"})
     }
 
     switch (appState.appState){

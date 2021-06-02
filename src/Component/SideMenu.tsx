@@ -23,6 +23,7 @@ export const SideMenu : React.FC<SideMenuProps> = (props) =>
 
     const onAddNewVariable = (event : React.MouseEvent) =>
     {
+        console.log(variableCount);
         dispatch({type : "ADD_VARIABLE", payload : {memberVariable: {id: variableCount, name: "newVar_" + variableCount.toString(), type : "var"}}});
         setVariableCount(prevCount => prevCount + 1);
     }
@@ -37,7 +38,7 @@ export const SideMenu : React.FC<SideMenuProps> = (props) =>
                 </form>
 
                 <SideMenuMember  memberName="Imports:"/>
-                <SideMenuMember children={childMembers.memberVariables.map(el => <Variable key={el.id} type={el.type} name={el.name}/>)} onClick={onAddNewVariable} memberName="Variables:"/>
+                <SideMenuMember children={childMembers.memberVariables.map(el => <Variable id={el.id} key={el.id} type={el.type} name={el.name}/>)} onClick={onAddNewVariable} memberName="Variables:"/>
                 <SideMenuMember memberName="Functions:"/>
             </div>
             
