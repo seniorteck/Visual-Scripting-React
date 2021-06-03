@@ -96,6 +96,15 @@
     display: flex;
 }
 
+.directionColumn
+{
+    flex-direction: column;
+}
+
+.directionRow
+{
+    flex-direction: row;
+}
 .justifyContentSpaceBetween
 {
     justify-content: space-between;

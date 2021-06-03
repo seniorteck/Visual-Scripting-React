@@ -22,10 +22,16 @@ export const Variable : React.FC<IVaraibleProps> = (props) =>
 
     useEffect(()=>
     {
-       memberList.current.addEventListener("mousedown", () => {
+       memberList.current.addEventListener("mousedown", (event) => {
+        
+        if (event.target != memberList.current) return;
         if (!child)
         {
+      
             child = document.body.appendChild(memberList.current.cloneNode(true)) as HTMLDivElement;
+            child.classList.add("drag")
+            child.style.left = (event.pageX - 150).toString() + "px";
+            child.style.top = (event.pageY - 21).toString() + "px";
         }
            document.addEventListener("mousemove", onElementDragged)
        });
@@ -35,14 +41,11 @@ export const Variable : React.FC<IVaraibleProps> = (props) =>
            if (child)
            {
                 document.removeEventListener("mousemove", onElementDragged)
-            document.body.removeChild(child as HTMLDivElement)
-            child = null;
+                document.body.removeChild(child as HTMLDivElement)
+                child = null;
            }
             
         });
-
-       
-
     }, []);
 
 

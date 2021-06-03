@@ -136,6 +136,7 @@ code {
   appearance: none;
   position: relative;
   display: inline-block;
+  outline: none;
   width: 77%;
   margin-right: 3px;
   height: 30px;
@@ -272,6 +273,18 @@ code {
    box-shadow: 0px 0px 10px 1px rgb(16 16 16 / 75%)
 }
 
+.dropDown
+{
+  left: -10px;
+  background-color: rgb(44, 44, 44);
+  padding: .6rem 1rem;
+  border-radius: 5px;
+  border: 2px solid black;
+  border-color: black;
+
+}
+
+
 .let
 {
     color: aqua;
@@ -303,6 +316,10 @@ code {
   padding-left: 1rem;
   left: 0;
   cursor: default;
+}
+.dropDown .let, .dropDown .const, .dropDown .var{
+  position: relative;
+  padding: 0;
 }
 
 .editIcon
@@ -356,6 +373,7 @@ code {
       background-color: rgb(44, 44, 44);
       height: 2rem;
       width: 12rem;
+      outline: none;
       border: 1px solid rgb(44, 44, 44);
       appearance: none;
       color: white;
@@ -378,8 +396,11 @@ code {
   padding: .24rem 0;
 }
 
-.editMemberContext .var{
+.editMemberContext .var,
+.editMemberContext .const,
+.editMemberContext .let{
   position: relative;
+
 }
 
 
